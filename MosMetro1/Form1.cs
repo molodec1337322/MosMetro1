@@ -14,6 +14,15 @@ namespace MosMetro1
     {
         public Form1()
         {
+            Graph.IUnderground underground = new Graph.Underground();
+            InitializeSettingsAndStations(underground);
+            Graph.IPathFinder searcher = new Graph.BreadthFirstSearch();
+
+            InitializeComponent();
+        }
+
+        private void InitializeSettingsAndStations(Graph.IUnderground underground)
+        {
             string[] stationNamesGreen =
                {
                 "Ховрино",
@@ -115,7 +124,6 @@ namespace MosMetro1
                 "Киевская"
             };
 
-
             Graph.IBranch stationsGreenBranch = new Graph.Branch("Замоскворецкая линия", "green", stationNamesGreen);
             Graph.IBranch stationsRedBranch = new Graph.Branch("Сокольническая линия", "red", stationsNamesRed);
             Graph.IBranch stationsBlueBranch = new Graph.Branch("Арбатско-покровская линия", "blue", stationsNamesBlue);
@@ -151,15 +159,10 @@ namespace MosMetro1
             Graph.Branch.ConnectBranches(stationsBrownBranch.GetStationByName("Киевская"),
                 stationsBlueBranch.GetStationByName("Киевская"));
 
-
-            Graph.IUnderground underground = new Graph.Underground();
             underground.AddBranch(stationsBlueBranch);
             underground.AddBranch(stationsBrownBranch);
             underground.AddBranch(stationsGreenBranch);
             underground.AddBranch(stationsRedBranch);
-
-
-            InitializeComponent();
         }
     }
 }

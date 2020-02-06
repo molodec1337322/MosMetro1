@@ -4,10 +4,8 @@ using System.Text;
 
 namespace Graph
 {
-    interface IDataWriterReader
+    interface IDataReader
     {
-        void DataWrite(string filename, IUnderground underground);
-
         IUnderground DataRead(string filename);
     }
 }

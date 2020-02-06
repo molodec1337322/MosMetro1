@@ -70,9 +70,9 @@
     </Compile>
     <Compile Include="Graph\Branch.cs" />
     <Compile Include="Graph\BreadthFirstSearch.cs" />
-    <Compile Include="Graph\DataWriterReader.cs" />
+    <Compile Include="Graph\DataReader.cs" />
     <Compile Include="Graph\IBranch.cs" />
-    <Compile Include="Graph\IDataWriterReader.cs" />
+    <Compile Include="Graph\IDataReader.cs" />
     <Compile Include="Graph\IPathFinder.cs" />
     <Compile Include="Graph\IStation.cs" />
     <Compile Include="Graph\ITempStationsContainer.cs" />

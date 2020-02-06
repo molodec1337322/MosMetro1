@@ -4,14 +4,9 @@ using System.Text;
 
 namespace Graph
 {
-    class DataWriterReader : IDataWriterReader
+    class DataWriterReader : IDataReader
     {
         public IUnderground DataRead(string filename)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DataWrite(string filename, IUnderground underground)
         {
             throw new NotImplementedException();
         }
