@@ -239,5 +239,10 @@ namespace MosMetro1
                 FindPathButton.Enabled = false;
             }
         }
+
+        private void TimeTravelLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
