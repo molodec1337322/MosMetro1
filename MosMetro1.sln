@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MosMetro1", "MosMetro1\MosMetro1.csproj", "{946021E0-9DD9-4B65-8BB5-7A5F0515644F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{946021E0-9DD9-4B65-8BB5-7A5F0515644F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{946021E0-9DD9-4B65-8BB5-7A5F0515644F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{946021E0-9DD9-4B65-8BB5-7A5F0515644F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{946021E0-9DD9-4B65-8BB5-7A5F0515644F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEDB0830-9C5C-4F62-801C-B6C11B2DB9C3}
+	EndGlobalSection
+EndGlobal
