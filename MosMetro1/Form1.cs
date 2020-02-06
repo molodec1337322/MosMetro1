@@ -221,7 +221,16 @@ namespace MosMetro1
             travelTime = path.Count * 3;
 
             PathListBox.Items.Clear();
-            PathListBox.Items.AddRange(ConvertFromListToArray(path));
+            
+            for(int i = 0; i < path.Count; i++)
+            {
+                if(i != 0 && path[i].GetColor() != path[i - 1].GetColor())
+                {
+                    PathListBox.Items.Add("---------ПЕРСАДКА---------");
+                }
+                PathListBox.Items.Add(path[i].GetStationName());
+            }
+
             TimeTravelLabel.Text = $"Примерное время в пути {travelTime} минут";
         }
 
