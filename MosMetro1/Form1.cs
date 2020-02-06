@@ -12,117 +12,67 @@ namespace MosMetro1
 {
     public partial class Form1 : Form
     {
+        private Graph.IPathFinder searcher;
+
+        private Graph.IUnderground underground;
+
+        private Graph.IBranch departureBranch = null;
+        private Graph.IBranch destinationBranch = null;
+        private Graph.IStation departureStation = null;
+        private Graph.IStation destinationStation = null;
+
+        private string[] branchNames = { "Замоскворецкая линия", "Сокольническая линия", "Арбатско-покровская линия",
+                "Кольцевая линия"};
+
+        private string[] stationNamesGreen = {"Ховрино", "Беломорская", "Речной вокзал", "Водный стадион", "Войковская",
+                "Сокол", "Аэропорт", "Динамо", "Белорусская", "Маяковская", "Тверская", "Театральная", "Новокузнецкая",
+                "Павелецкая", "Автозаводская", "Технопарк", "Коломенская", "Каширская", "Кантемировская", "Царицыно",
+                "Ленино", "Орехово", "Домодедовская", "Красногвардейская","Алма - Атинская"};
+
+        private string[] stationsNamesRed = {"Бульвар Рокоссовского", "Черкизовская", "Преображенская площадь",
+                "Сокольники", "Красносельская", "Комсомольская", "Красные Ворота", "Чистые пруды", "Лубянка",
+                "Охотный Ряд", "Библиотека имени Ленина", "Кропоткинская", "Парк культуры", "Фрунзенская",
+                "Спортивная", "Воробьёвы горы", "Университет", "Проспект Вернадского", "Юго-Западная", "Тропарёво",
+                "Румянцево", "Саларьево", "Филатов луг", "Прокшино", "Ольховая", "Коммунарка"};
+
+        private string[] stationsNamesBlue = {"Пятницкое шоссе", "Митино", "Волоколамская", "Мякинино", "Строгино",
+                "Крылатское", "Молодёжная", "Кунцевская", "Славянский бульвар", "Парк Победы", "Киевская", "Смоленская",
+                "Арбатская", "Площадь Революции", "Курская", "Бауманская", "Электрозаводская", "Семёновская",
+                "Партизанская", "Измайловская", "Первомайская","Щёлковская"};
+
+        private string[] stationsNamesBrown = {"Парк культуры", "Октябрьская", "Добрынинская", "Павелецкая",
+                "Таганская", "Курская", "Комсомольская", "Проспект Мира", "Новослободская", "Белорусская",
+                "Краснопресненская", "Киевская"};
+
         public Form1()
         {
-            Graph.IUnderground underground = new Graph.Underground();
-            InitializeSettingsAndStations(underground);
-            Graph.IPathFinder searcher = new Graph.BreadthFirstSearch();
+            underground = new Graph.Underground();
+            InitializeSettingsAndStations();
 
-            InitializeComponent();
+            searcher = new Graph.BreadthFirstSearch();
+
+            InitializeComponent(); //инициализация элементов
+
+            BranchDepartureComboBox.Items.AddRange(branchNames);
+            BranchDestinationComboBox.Items.AddRange(branchNames);
+
+            BranchDepartureComboBox.SelectedIndexChanged += BranchDepartureComboBox_SelectedIndexChanged;
+            BranchDestinationComboBox.SelectedIndexChanged += BranchDestinationComboBox_SelectedIndexChanged;
+            if(departureBranch != null)
+            {
+                StationDepartureComboBox.SelectedIndexChanged += StationDepartureComboBox_SelectedIndexChanged;
+            }
+            if(destinationBranch != null)
+            {
+                StationDestinationComboBox.SelectedIndexChanged += StationDestinationComboBox_SelectedIndexChanged;
+            }
         }
 
-        private void InitializeSettingsAndStations(Graph.IUnderground underground)
+        /// <summary>
+        /// инициализация настроек и параметров метро
+        /// </summary>
+        private void InitializeSettingsAndStations()
         {
-            string[] stationNamesGreen =
-               {
-                "Ховрино",
-                "Беломорская",
-                "Речной вокзал",
-                "Водный стадион",
-                "Войковская",
-                "Сокол",
-                "Аэропорт",
-                "Динамо",
-                "Белорусская",
-                "Маяковская",
-                "Тверская",
-                "Театральная",
-                "Новокузнецкая",
-                "Павелецкая",
-                "Автозаводская",
-                "Технопарк",
-                "Коломенская",
-                "Каширская",
-                "Кантемировская",
-                "Царицыно",
-                "Ленино",
-                "Орехово",
-                "Домодедовская",
-                "Красногвардейская",
-                "Алма - Атинская"
-            };
-
-            string[] stationsNamesRed =
-            {
-                "Бульвар Рокоссовского",
-                "Черкизовская",
-                "Преображенская площадь",
-                "Сокольники",
-                "Красносельская",
-                "Комсомольская",
-                "Красные Ворота",
-                "Чистые пруды",
-                "Лубянка",
-                "Охотный Ряд",
-                "Библиотека имени Ленина",
-                "Кропоткинская",
-                "Парк культуры",
-                "Фрунзенская",
-                "Спортивная",
-                "Воробьёвы горы",
-                "Университет",
-                "Проспект Вернадского",
-                "Юго-Западная",
-                "Тропарёво",
-                "Румянцево",
-                "Саларьево",
-                "Филатов луг",
-                "Прокшино",
-                "Ольховая",
-                "Коммунарка"
-            };
-
-            string[] stationsNamesBlue =
-            {
-                "Пятницкое шоссе",
-                "Митино",
-                "Волоколамская",
-                "Мякинино",
-                "Строгино",
-                "Крылатское",
-                "Молодёжная",
-                "Кунцевская",
-                "Славянский бульвар",
-                "Парк Победы",
-                "Киевская",
-                "Смоленская",
-                "Арбатская",
-                "Площадь Революции",
-                "Курская",
-                "Бауманская",
-                "Электрозаводская",
-                "Семёновская",
-                "Партизанская",
-                "Измайловская",
-                "Первомайская",
-                "Щёлковская"
-            };
-
-            string[] stationsNamesBrown =
-            {
-                "Парк культуры",
-                "Октябрьская",
-                "Добрынинская",
-                "Павелецкая",
-                "Таганская",
-                "Курская",
-                "Комсомольская",
-                "Проспект Мира",
-                "Новослободская",
-                "Белорусская",
-                "Краснопресненская",
-                "Киевская"
-            };
 
             Graph.IBranch stationsGreenBranch = new Graph.Branch("Замоскворецкая линия", "green", stationNamesGreen);
             Graph.IBranch stationsRedBranch = new Graph.Branch("Сокольническая линия", "red", stationsNamesRed);
@@ -163,6 +113,79 @@ namespace MosMetro1
             underground.AddBranch(stationsBrownBranch);
             underground.AddBranch(stationsGreenBranch);
             underground.AddBranch(stationsRedBranch);
+        }
+
+        private void StationDestinationLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StationDestinationLabel_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// выбор стнанции назначения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StationDestinationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedStation = StationDestinationComboBox.SelectedItem.ToString();
+            destinationStation = destinationBranch.GetStationByName(selectedStation);
+        }
+
+        /// <summary>
+        /// выбор ветки назначения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BranchDestinationComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            StationDestinationComboBox.Items.Clear();
+            string selectedBranch = BranchDestinationComboBox.SelectedItem.ToString();
+            destinationBranch = underground.GetBranchByName(selectedBranch);
+            StationDestinationComboBox.Items.AddRange(ConvertFromListToArray(destinationBranch.GetAllStations()));
+        }
+
+        /// <summary>
+        /// выбор станции отправления
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StationDepartureComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedStation = StationDepartureComboBox.SelectedItem.ToString();
+            departureStation = departureBranch.GetStationByName(selectedStation);
+        }
+
+        /// <summary>
+        /// выбор ветки отправления
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BranchDepartureComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            StationDepartureComboBox.Items.Clear();
+            string selectedBranch = BranchDepartureComboBox.SelectedItem.ToString();
+            departureBranch = underground.GetBranchByName(selectedBranch);
+            StationDepartureComboBox.Items.AddRange(ConvertFromListToArray(departureBranch.GetAllStations()));
+        }
+
+        private string[] ConvertFromListToArray(List<Graph.IStation> stationList)
+        {
+            string[] stationNamesArray = new string[stationList.Count];
+            for(int i = 0; i < stationList.Count; i++)
+            {
+                stationNamesArray[i] = stationList[i].GetStationName();
+            }
+            return stationNamesArray;
         }
     }
 }

@@ -26,9 +26,10 @@ namespace Graph
 
         public IBranch GetBranchByName(string branchName)
         {
+            string branchNameForamtted = branchName.ToLower();
             foreach(IBranch branch in branches)
             {
-                if(branch.GetBranchName() == branchName)
+                if(branch.GetBranchName() == branchNameForamtted)
                 {
                     return branch;
                 }
