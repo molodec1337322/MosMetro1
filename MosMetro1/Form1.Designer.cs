@@ -38,27 +38,32 @@
             this.StationDestinationLabel = new System.Windows.Forms.Label();
             this.DepartureGroup = new System.Windows.Forms.GroupBox();
             this.DestinationGroup = new System.Windows.Forms.GroupBox();
+            this.FindPathButton = new System.Windows.Forms.Button();
+            this.PathListBox = new System.Windows.Forms.ListBox();
+            this.TimeTravelLabel = new System.Windows.Forms.Label();
             this.DepartureGroup.SuspendLayout();
             this.DestinationGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // BranchDepartureComboBox
             // 
+            this.BranchDepartureComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BranchDepartureComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.BranchDepartureComboBox.FormattingEnabled = true;
-            this.BranchDepartureComboBox.Location = new System.Drawing.Point(6, 32);
+            this.BranchDepartureComboBox.Location = new System.Drawing.Point(6, 35);
             this.BranchDepartureComboBox.Name = "BranchDepartureComboBox";
-            this.BranchDepartureComboBox.Size = new System.Drawing.Size(171, 21);
+            this.BranchDepartureComboBox.Size = new System.Drawing.Size(201, 24);
             this.BranchDepartureComboBox.TabIndex = 0;
             this.BranchDepartureComboBox.SelectedIndexChanged += new System.EventHandler(this.BranchDepartureComboBox_SelectedIndexChanged);
             // 
             // StationDepartureComboBox
             // 
+            this.StationDepartureComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StationDepartureComboBox.ForeColor = System.Drawing.SystemColors.WindowText;
             this.StationDepartureComboBox.FormattingEnabled = true;
-            this.StationDepartureComboBox.Location = new System.Drawing.Point(6, 72);
+            this.StationDepartureComboBox.Location = new System.Drawing.Point(6, 75);
             this.StationDepartureComboBox.Name = "StationDepartureComboBox";
-            this.StationDepartureComboBox.Size = new System.Drawing.Size(171, 21);
+            this.StationDepartureComboBox.Size = new System.Drawing.Size(201, 24);
             this.StationDepartureComboBox.TabIndex = 1;
             this.StationDepartureComboBox.SelectedIndexChanged += new System.EventHandler(this.StationDepartureComboBox_SelectedIndexChanged);
             // 
@@ -68,7 +73,7 @@
             this.BranchDepartureLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.BranchDepartureLabel.Location = new System.Drawing.Point(6, 16);
             this.BranchDepartureLabel.Name = "BranchDepartureLabel";
-            this.BranchDepartureLabel.Size = new System.Drawing.Size(105, 13);
+            this.BranchDepartureLabel.Size = new System.Drawing.Size(136, 16);
             this.BranchDepartureLabel.TabIndex = 2;
             this.BranchDepartureLabel.Text = "Ветка отправления";
             // 
@@ -76,46 +81,50 @@
             // 
             this.StationDepartureLabel.AutoSize = true;
             this.StationDepartureLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.StationDepartureLabel.Location = new System.Drawing.Point(6, 56);
+            this.StationDepartureLabel.Location = new System.Drawing.Point(6, 59);
             this.StationDepartureLabel.Name = "StationDepartureLabel";
-            this.StationDepartureLabel.Size = new System.Drawing.Size(117, 13);
+            this.StationDepartureLabel.Size = new System.Drawing.Size(152, 16);
             this.StationDepartureLabel.TabIndex = 3;
             this.StationDepartureLabel.Text = "Станция отправления";
             this.StationDepartureLabel.Click += new System.EventHandler(this.StationDestinationLabel_Click);
             // 
             // BranchDestinationComboBox
             // 
+            this.BranchDestinationComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BranchDestinationComboBox.FormattingEnabled = true;
             this.BranchDestinationComboBox.Location = new System.Drawing.Point(6, 35);
             this.BranchDestinationComboBox.Name = "BranchDestinationComboBox";
-            this.BranchDestinationComboBox.Size = new System.Drawing.Size(171, 21);
+            this.BranchDestinationComboBox.Size = new System.Drawing.Size(201, 24);
             this.BranchDestinationComboBox.TabIndex = 4;
             this.BranchDestinationComboBox.SelectedIndexChanged += new System.EventHandler(this.BranchDestinationComboBox_SelectedIndexChanged);
             // 
             // StationDestinationComboBox
             // 
+            this.StationDestinationComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StationDestinationComboBox.FormattingEnabled = true;
-            this.StationDestinationComboBox.Location = new System.Drawing.Point(6, 73);
+            this.StationDestinationComboBox.Location = new System.Drawing.Point(6, 75);
             this.StationDestinationComboBox.Name = "StationDestinationComboBox";
-            this.StationDestinationComboBox.Size = new System.Drawing.Size(171, 21);
+            this.StationDestinationComboBox.Size = new System.Drawing.Size(201, 24);
             this.StationDestinationComboBox.TabIndex = 5;
             this.StationDestinationComboBox.SelectedIndexChanged += new System.EventHandler(this.StationDestinationComboBox_SelectedIndexChanged);
             // 
             // BranchDestinationLabel
             // 
             this.BranchDestinationLabel.AutoSize = true;
+            this.BranchDestinationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BranchDestinationLabel.Location = new System.Drawing.Point(6, 16);
             this.BranchDestinationLabel.Name = "BranchDestinationLabel";
-            this.BranchDestinationLabel.Size = new System.Drawing.Size(89, 13);
+            this.BranchDestinationLabel.Size = new System.Drawing.Size(113, 16);
             this.BranchDestinationLabel.TabIndex = 6;
             this.BranchDestinationLabel.Text = "Ветка прибытия";
             // 
             // StationDestinationLabel
             // 
             this.StationDestinationLabel.AutoSize = true;
+            this.StationDestinationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.StationDestinationLabel.Location = new System.Drawing.Point(6, 59);
             this.StationDestinationLabel.Name = "StationDestinationLabel";
-            this.StationDestinationLabel.Size = new System.Drawing.Size(101, 13);
+            this.StationDestinationLabel.Size = new System.Drawing.Size(129, 16);
             this.StationDestinationLabel.TabIndex = 7;
             this.StationDestinationLabel.Text = "Станция прибытия";
             this.StationDestinationLabel.Click += new System.EventHandler(this.StationDestinationLabel_Click_1);
@@ -126,9 +135,10 @@
             this.DepartureGroup.Controls.Add(this.StationDepartureLabel);
             this.DepartureGroup.Controls.Add(this.BranchDepartureComboBox);
             this.DepartureGroup.Controls.Add(this.StationDepartureComboBox);
-            this.DepartureGroup.Location = new System.Drawing.Point(789, 12);
+            this.DepartureGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DepartureGroup.Location = new System.Drawing.Point(759, 5);
             this.DepartureGroup.Name = "DepartureGroup";
-            this.DepartureGroup.Size = new System.Drawing.Size(183, 103);
+            this.DepartureGroup.Size = new System.Drawing.Size(213, 121);
             this.DepartureGroup.TabIndex = 8;
             this.DepartureGroup.TabStop = false;
             this.DepartureGroup.Text = "Отправление";
@@ -140,18 +150,52 @@
             this.DestinationGroup.Controls.Add(this.BranchDestinationComboBox);
             this.DestinationGroup.Controls.Add(this.StationDestinationLabel);
             this.DestinationGroup.Controls.Add(this.StationDestinationComboBox);
-            this.DestinationGroup.Location = new System.Drawing.Point(789, 121);
+            this.DestinationGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DestinationGroup.Location = new System.Drawing.Point(759, 129);
             this.DestinationGroup.Name = "DestinationGroup";
-            this.DestinationGroup.Size = new System.Drawing.Size(183, 103);
+            this.DestinationGroup.Size = new System.Drawing.Size(213, 121);
             this.DestinationGroup.TabIndex = 9;
             this.DestinationGroup.TabStop = false;
             this.DestinationGroup.Text = "Прибытие";
+            // 
+            // FindPathButton
+            // 
+            this.FindPathButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FindPathButton.Location = new System.Drawing.Point(765, 256);
+            this.FindPathButton.Name = "FindPathButton";
+            this.FindPathButton.Size = new System.Drawing.Size(201, 23);
+            this.FindPathButton.TabIndex = 10;
+            this.FindPathButton.Text = "Найти маршрут";
+            this.FindPathButton.UseVisualStyleBackColor = true;
+            this.FindPathButton.Click += new System.EventHandler(this.FindPathButton_Click);
+            // 
+            // PathListBox
+            // 
+            this.PathListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.PathListBox.FormattingEnabled = true;
+            this.PathListBox.ItemHeight = 16;
+            this.PathListBox.Location = new System.Drawing.Point(765, 325);
+            this.PathListBox.Name = "PathListBox";
+            this.PathListBox.Size = new System.Drawing.Size(207, 420);
+            this.PathListBox.TabIndex = 11;
+            // 
+            // TimeTravelLabel
+            // 
+            this.TimeTravelLabel.AutoSize = true;
+            this.TimeTravelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TimeTravelLabel.Location = new System.Drawing.Point(744, 289);
+            this.TimeTravelLabel.Name = "TimeTravelLabel";
+            this.TimeTravelLabel.Size = new System.Drawing.Size(0, 16);
+            this.TimeTravelLabel.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 761);
+            this.Controls.Add(this.TimeTravelLabel);
+            this.Controls.Add(this.PathListBox);
+            this.Controls.Add(this.FindPathButton);
             this.Controls.Add(this.DestinationGroup);
             this.Controls.Add(this.DepartureGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -162,6 +206,7 @@
             this.DestinationGroup.ResumeLayout(false);
             this.DestinationGroup.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -177,6 +222,9 @@
         private System.Windows.Forms.Label StationDestinationLabel;
         private System.Windows.Forms.GroupBox DepartureGroup;
         private System.Windows.Forms.GroupBox DestinationGroup;
+        private System.Windows.Forms.Button FindPathButton;
+        private System.Windows.Forms.ListBox PathListBox;
+        private System.Windows.Forms.Label TimeTravelLabel;
     }
 }
 

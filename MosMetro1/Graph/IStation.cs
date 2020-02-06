@@ -10,9 +10,9 @@ namespace Graph
 
         string GetStationID();
 
-        void ConnectStation(IStation station, bool isViceVersa);
+        string GetColor();
 
-        bool IsEndStation();
+        void ConnectStation(IStation station, bool isViceVersa);
 
         List<IStation> GetConnectedStations();
     }

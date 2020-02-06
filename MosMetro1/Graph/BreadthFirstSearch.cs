@@ -93,8 +93,6 @@ namespace Graph
             IStation stationTemp = stationTo;
             bool IsStationFound = false;
 
-            path.Add(stationTo);
-
             while (level > 0)
             {
                 IsStationFound = false;

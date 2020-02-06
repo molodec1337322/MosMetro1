@@ -14,6 +14,9 @@ namespace MosMetro1
     {
         private Graph.IPathFinder searcher;
 
+        private List<Graph.IStation> path;
+        private int travelTime;
+
         private Graph.IUnderground underground;
 
         private Graph.IBranch departureBranch = null;
@@ -58,14 +61,10 @@ namespace MosMetro1
 
             BranchDepartureComboBox.SelectedIndexChanged += BranchDepartureComboBox_SelectedIndexChanged;
             BranchDestinationComboBox.SelectedIndexChanged += BranchDestinationComboBox_SelectedIndexChanged;
-            if(departureBranch != null)
-            {
-                StationDepartureComboBox.SelectedIndexChanged += StationDepartureComboBox_SelectedIndexChanged;
-            }
-            if(destinationBranch != null)
-            {
-                StationDestinationComboBox.SelectedIndexChanged += StationDestinationComboBox_SelectedIndexChanged;
-            }
+            StationDepartureComboBox.SelectedIndexChanged += StationDepartureComboBox_SelectedIndexChanged;
+            StationDestinationComboBox.SelectedIndexChanged += StationDestinationComboBox_SelectedIndexChanged;
+
+            CheckFindPathButtonIsEnable();
         }
 
         /// <summary>
@@ -138,7 +137,10 @@ namespace MosMetro1
         private void StationDestinationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedStation = StationDestinationComboBox.SelectedItem.ToString();
+
             destinationStation = destinationBranch.GetStationByName(selectedStation);
+
+            CheckFindPathButtonIsEnable();
         }
 
         /// <summary>
@@ -149,9 +151,15 @@ namespace MosMetro1
         private void BranchDestinationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             StationDestinationComboBox.Items.Clear();
+
             string selectedBranch = BranchDestinationComboBox.SelectedItem.ToString();
+
             destinationBranch = underground.GetBranchByName(selectedBranch);
             StationDestinationComboBox.Items.AddRange(ConvertFromListToArray(destinationBranch.GetAllStations()));
+
+            destinationStation = null;
+
+            CheckFindPathButtonIsEnable();
         }
 
         /// <summary>
@@ -162,7 +170,10 @@ namespace MosMetro1
         private void StationDepartureComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedStation = StationDepartureComboBox.SelectedItem.ToString();
+
             departureStation = departureBranch.GetStationByName(selectedStation);
+
+            CheckFindPathButtonIsEnable();
         }
 
         /// <summary>
@@ -173,19 +184,60 @@ namespace MosMetro1
         private void BranchDepartureComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             StationDepartureComboBox.Items.Clear();
+
             string selectedBranch = BranchDepartureComboBox.SelectedItem.ToString();
+
             departureBranch = underground.GetBranchByName(selectedBranch);
             StationDepartureComboBox.Items.AddRange(ConvertFromListToArray(departureBranch.GetAllStations()));
+
+            departureStation = null;
+
+            CheckFindPathButtonIsEnable();
         }
 
+        /// <summary>
+        /// конвертирует список станций в массив имен этих станций
+        /// </summary>
+        /// <param name="stationList"></param>
+        /// <returns></returns>
         private string[] ConvertFromListToArray(List<Graph.IStation> stationList)
         {
             string[] stationNamesArray = new string[stationList.Count];
-            for(int i = 0; i < stationList.Count; i++)
+            for (int i = 0; i < stationList.Count; i++)
             {
                 stationNamesArray[i] = stationList[i].GetStationName();
             }
             return stationNamesArray;
+        }
+
+        /// <summary>
+        /// кнопка поиска маршрута
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FindPathButton_Click(object sender, EventArgs e)
+        {
+            path = searcher.FindPath(departureStation, destinationStation);
+            travelTime = path.Count * 3;
+
+            PathListBox.Items.Clear();
+            PathListBox.Items.AddRange(ConvertFromListToArray(path));
+            TimeTravelLabel.Text = $"Примерное время в пути {travelTime} минут";
+        }
+
+        /// <summary>
+        /// проверяет, доложна ли кнопка быть активной
+        /// </summary>
+        private void CheckFindPathButtonIsEnable()
+        {
+            if (departureBranch != null && destinationBranch != null && departureStation != null && destinationStation != null)
+            {
+                FindPathButton.Enabled = true;
+            }
+            else
+            {
+                FindPathButton.Enabled = false;
+            }
         }
     }
 }

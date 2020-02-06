@@ -96,11 +96,11 @@ namespace Graph
             {
                 if (i == 0 || i == stations.Length)
                 {
-                    stationsBranch.Add(new Station(stations[i], true));
+                    stationsBranch.Add(new Station(stations[i], color));
                 }
                 else
                 {
-                    stationsBranch.Add(new Station(stations[i], false));
+                    stationsBranch.Add(new Station(stations[i], color));
                 }
                 if (i > 0)
                 {

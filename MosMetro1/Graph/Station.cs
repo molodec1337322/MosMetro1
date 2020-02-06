@@ -12,15 +12,15 @@ namespace Graph
         private List<IStation> ConnectedStations;
         private string name;
         private string id;
-        private bool isEnd;
+        private string color;
 
         private static int global_id = 0;
 
-        public Station(string name, bool isEnd)
+        public Station(string name, string color)
         {
             this.name = name.ToLower();
             this.id = global_id++.ToString();
-            this.isEnd = isEnd;
+            this.color = color;
             ConnectedStations = new List<IStation>(0);
         }
 
@@ -43,14 +43,14 @@ namespace Graph
             return name;
         }
 
+        public string GetColor()
+        {
+            return color;
+        }
+
         public List<IStation> GetConnectedStations()
         {
             return ConnectedStations;
-        }
-
-        public bool IsEndStation()
-        {
-            return isEnd;
         }
     }
 }
