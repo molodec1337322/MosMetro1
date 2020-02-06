@@ -116,10 +116,10 @@ namespace MosMetro1
             };
 
 
-            Graph.Branch stationsGreenBranch = new Graph.Branch("Замоскворецкая линия", "green", stationNamesGreen);
-            Graph.Branch stationsRedBranch = new Graph.Branch("Сокольническая линия", "red", stationsNamesRed);
-            Graph.Branch stationsBlueBranch = new Graph.Branch("Арбатско-покровская линия", "blue", stationsNamesBlue);
-            Graph.Branch stationsBrownBranch = new Graph.Branch("Кольцевая линия", "brown", stationsNamesBrown);
+            Graph.IBranch stationsGreenBranch = new Graph.Branch("Замоскворецкая линия", "green", stationNamesGreen);
+            Graph.IBranch stationsRedBranch = new Graph.Branch("Сокольническая линия", "red", stationsNamesRed);
+            Graph.IBranch stationsBlueBranch = new Graph.Branch("Арбатско-покровская линия", "blue", stationsNamesBlue);
+            Graph.IBranch stationsBrownBranch = new Graph.Branch("Кольцевая линия", "brown", stationsNamesBrown);
 
             Graph.Branch.ConnectBranches(stationsBrownBranch.GetStationByName("Парк культуры"),
                 stationsBrownBranch.GetStationByName("Киевская"));
@@ -152,7 +152,7 @@ namespace MosMetro1
                 stationsBlueBranch.GetStationByName("Киевская"));
 
 
-            Graph.Underground underground = new Graph.Underground();
+            Graph.IUnderground underground = new Graph.Underground();
             underground.AddBranch(stationsBlueBranch);
             underground.AddBranch(stationsBrownBranch);
             underground.AddBranch(stationsGreenBranch);
