@@ -24,8 +24,8 @@ namespace MosMetro1
         private Graph.IStation departureStation = null;
         private Graph.IStation destinationStation = null;
 
-        private string[] branchNames = { "Замоскворецкая линия", "Сокольническая линия", "Арбатско-покровская линия",
-                "Кольцевая линия"};
+        private string[] branchNames = { "Сокольническая линия (1)", "Замоскворецкая линия (2)", "Арбатско-покровская линия (3)",
+                "Кольцевая линия (5)"};
 
         private string[] stationNamesGreen = {"Ховрино", "Беломорская", "Речной вокзал", "Водный стадион", "Войковская",
                 "Сокол", "Аэропорт", "Динамо", "Белорусская", "Маяковская", "Тверская", "Театральная", "Новокузнецкая",
@@ -56,8 +56,19 @@ namespace MosMetro1
 
             InitializeComponent(); //инициализация элементов
 
+            Brush brush;
             BranchDepartureComboBox.Items.AddRange(branchNames);
             BranchDestinationComboBox.Items.AddRange(branchNames);
+
+            BranchDepartureComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            BranchDepartureComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            BranchDestinationComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            BranchDestinationComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            StationDepartureComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            StationDepartureComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
+            StationDestinationComboBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            StationDestinationComboBox.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             BranchDepartureComboBox.SelectedIndexChanged += BranchDepartureComboBox_SelectedIndexChanged;
             BranchDestinationComboBox.SelectedIndexChanged += BranchDestinationComboBox_SelectedIndexChanged;
@@ -73,10 +84,10 @@ namespace MosMetro1
         private void InitializeSettingsAndStations()
         {
 
-            Graph.IBranch stationsGreenBranch = new Graph.Branch("Замоскворецкая линия", "green", stationNamesGreen);
-            Graph.IBranch stationsRedBranch = new Graph.Branch("Сокольническая линия", "red", stationsNamesRed);
-            Graph.IBranch stationsBlueBranch = new Graph.Branch("Арбатско-покровская линия", "blue", stationsNamesBlue);
-            Graph.IBranch stationsBrownBranch = new Graph.Branch("Кольцевая линия", "brown", stationsNamesBrown);
+            Graph.IBranch stationsGreenBranch = new Graph.Branch("Замоскворецкая линия (2)", "green", stationNamesGreen);
+            Graph.IBranch stationsRedBranch = new Graph.Branch("Сокольническая линия (1)", "red", stationsNamesRed);
+            Graph.IBranch stationsBlueBranch = new Graph.Branch("Арбатско-покровская линия (3)", "blue", stationsNamesBlue);
+            Graph.IBranch stationsBrownBranch = new Graph.Branch("Кольцевая линия (5)", "brown", stationsNamesBrown);
 
             Graph.Branch.ConnectBranches(stationsBrownBranch.GetStationByName("Парк культуры"),
                 stationsBrownBranch.GetStationByName("Киевская"));
