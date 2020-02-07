@@ -199,7 +199,7 @@
             this.ControlGroup.Controls.Add(this.DestinationGroup);
             this.ControlGroup.Controls.Add(this.DepartureGroup);
             this.ControlGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ControlGroup.Location = new System.Drawing.Point(702, 11);
+            this.ControlGroup.Location = new System.Drawing.Point(12, 12);
             this.ControlGroup.Name = "ControlGroup";
             this.ControlGroup.Size = new System.Drawing.Size(270, 758);
             this.ControlGroup.TabIndex = 13;
@@ -210,7 +210,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 781);
+            this.ClientSize = new System.Drawing.Size(295, 781);
             this.Controls.Add(this.ControlGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
