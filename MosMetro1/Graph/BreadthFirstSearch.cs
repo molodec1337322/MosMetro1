@@ -33,7 +33,6 @@ namespace Graph
             {
                 stationFrom_Temp = searchQueue.Dequeue();
                 
-
                 foreach(IStation station in stationFrom_Temp.GetConnectedStations())
                 {
                     if (!IsContains(searched, station))
@@ -54,7 +53,6 @@ namespace Graph
 
                 if (IsPathFound) break;
             }
-
 
             return FormPath(pathContainer, stationFrom, stationTo, currentLevel);
         }
