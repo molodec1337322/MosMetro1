@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.BranchDepartureComboBox = new System.Windows.Forms.ComboBox();
             this.StationDepartureComboBox = new System.Windows.Forms.ComboBox();
             this.BranchDepartureLabel = new System.Windows.Forms.Label();
@@ -42,9 +43,11 @@
             this.PathListBox = new System.Windows.Forms.ListBox();
             this.TimeTravelLabel = new System.Windows.Forms.Label();
             this.ControlGroup = new System.Windows.Forms.GroupBox();
+            this.undegroundMap = new System.Windows.Forms.PictureBox();
             this.DepartureGroup.SuspendLayout();
             this.DestinationGroup.SuspendLayout();
             this.ControlGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.undegroundMap)).BeginInit();
             this.SuspendLayout();
             // 
             // BranchDepartureComboBox
@@ -178,7 +181,7 @@
             this.PathListBox.ItemHeight = 16;
             this.PathListBox.Location = new System.Drawing.Point(24, 332);
             this.PathListBox.Name = "PathListBox";
-            this.PathListBox.Size = new System.Drawing.Size(211, 420);
+            this.PathListBox.Size = new System.Drawing.Size(211, 516);
             this.PathListBox.TabIndex = 11;
             // 
             // TimeTravelLabel
@@ -199,18 +202,30 @@
             this.ControlGroup.Controls.Add(this.DestinationGroup);
             this.ControlGroup.Controls.Add(this.DepartureGroup);
             this.ControlGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ControlGroup.Location = new System.Drawing.Point(12, 12);
+            this.ControlGroup.Location = new System.Drawing.Point(702, 12);
             this.ControlGroup.Name = "ControlGroup";
-            this.ControlGroup.Size = new System.Drawing.Size(270, 758);
+            this.ControlGroup.Size = new System.Drawing.Size(270, 867);
             this.ControlGroup.TabIndex = 13;
             this.ControlGroup.TabStop = false;
             this.ControlGroup.Text = "Управление";
+            // 
+            // undegroundMap
+            // 
+            this.undegroundMap.ErrorImage = null;
+            this.undegroundMap.Image = ((System.Drawing.Image)(resources.GetObject("undegroundMap.Image")));
+            this.undegroundMap.InitialImage = null;
+            this.undegroundMap.Location = new System.Drawing.Point(12, 10);
+            this.undegroundMap.Name = "undegroundMap";
+            this.undegroundMap.Size = new System.Drawing.Size(684, 870);
+            this.undegroundMap.TabIndex = 14;
+            this.undegroundMap.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 781);
+            this.ClientSize = new System.Drawing.Size(984, 891);
+            this.Controls.Add(this.undegroundMap);
             this.Controls.Add(this.ControlGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
@@ -221,6 +236,7 @@
             this.DestinationGroup.PerformLayout();
             this.ControlGroup.ResumeLayout(false);
             this.ControlGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.undegroundMap)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,6 +257,7 @@
         private System.Windows.Forms.ListBox PathListBox;
         private System.Windows.Forms.Label TimeTravelLabel;
         private System.Windows.Forms.GroupBox ControlGroup;
+        private System.Windows.Forms.PictureBox undegroundMap;
     }
 }
 
