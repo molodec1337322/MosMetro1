@@ -229,7 +229,7 @@
             this.Controls.Add(this.ControlGroup);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Moscow underground";
             this.DepartureGroup.ResumeLayout(false);
             this.DepartureGroup.PerformLayout();
             this.DestinationGroup.ResumeLayout(false);
